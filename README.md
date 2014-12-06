@@ -1,12 +1,16 @@
 Computer Organiozation 2 Course Project 
 ------------------------------------------
 
-<ALU>
+1)Control Unit
+
 <Inputs>
-
+control unit inputs
 <Outputs>
+contol unit outputs
 
-  Description 
+it controls the flow of the mips processor
+
+
 
 
 
