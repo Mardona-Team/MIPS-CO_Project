@@ -1,7 +1,7 @@
 Computer Organiozation 2 Course Project 
 ------------------------------------------
 
-<Block Name>
+<ALU>
 <Inputs>
 
 <Outputs>
@@ -9,7 +9,6 @@ Computer Organiozation 2 Course Project
   Description 
 
 
-END of doc
 
 
 
