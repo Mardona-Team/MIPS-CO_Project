@@ -1,4 +1,4 @@
-Computer Organization 2 Course Project 
+﻿Computer Organization 2 Course Project 
 ------------------------------------------
 
 <Block_name>
@@ -79,6 +79,24 @@ Description:
 The Program Counter (PC) is a register structure that contains the address pointer value of the current instruction. Each cycle, the value at the pointer is read into the instruction decoder and the program counter is updated to point to the next instruction.
 The program counter circuit is composed of two kinds of registers, a down counter, an up counter, a selector, and a logic circuit. The two kinds of registers hold a pre-jump PC value and a post-jump PC value of a jump that is prescribed by a program. The down counter holds the number of repetitions of a repeat sequence that is prescribed by the program. The up counter holds a PC value that is counted up for each clock pulse. The selector selects, as a PC value to be output next, the post-jump PC value or the value that is held by the up counter. The logic circuit refers to the output value of the program counter and the output values of the registers and the down counter, and generates a signal that instructs the selector what PC value should be selected as the next output value.
 
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+Block name : Register File 
+Description: Register file has 32 32-bits registers their general purpose is to store operands of instructions such as add, sub, lw, etc. 
+
+General strategy of block implementation: a combination of D flip-flops, and Demultiplexers. 1:32 Demultiplexers use 5 bits coming from IM to decide which register(D flip-flop) to write data in and they use different 5 bits from IM to decide which register to write data in. Control unit decides whether to enable or disable the D flip-flop used as a write register.
+
+Inputs: 
+-Write data coming from data memory -for lW instruction- or ALU-for arithmetic instructions- and the decision is taken using a mux.
+-Write register from IM
+-read register 1 from IM
+-read register 2 from IM
+
+Outputs:
+-read data 1 to ALU
+-read data 2 to ALU or data memory.
 
 
 
