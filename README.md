@@ -62,8 +62,9 @@ Clock input (CLK)
 
 Block Name:
 -	Program Counter
--	
+	
 Inputs:
+
 The program counter receives one and only one of the following inputs for each clock cycle:
 -	PC + 4
 -	PC + 4 + (offset*4) from a branch instruction
@@ -71,6 +72,7 @@ The program counter receives one and only one of the following inputs for each c
 -	Address saved in $ra register from jr instruction 
 
 Outputs:
+
 -	The address of the next instruction which is logically true according to the program sequence.
 Description:
 The Program Counter (PC) is a register structure that contains the address pointer value of the current instruction. Each cycle, the value at the pointer is read into the instruction decoder and the program counter is updated to point to the next instruction.
