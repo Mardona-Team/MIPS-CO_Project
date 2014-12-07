@@ -39,9 +39,11 @@ eg. input (0)011 1011 1110  --> output 0000 0000 0000 0000 0011 1011 1110
 
 Block Name :
 -	Data Memory
+
 Inputs:
 -	Address
 -	Write data
+
 Outputs:
 -	Read result
 Description :
@@ -60,12 +62,14 @@ Clock input (CLK)
 
 Block Name:
 -	Program Counter
+-	
 Inputs:
 The program counter receives one and only one of the following inputs for each clock cycle:
 -	PC + 4
 -	PC + 4 + (offset*4) from a branch instruction
 -	Label from a jump and link instruction 
 -	Address saved in $ra register from jr instruction 
+
 Outputs:
 -	The address of the next instruction which is logically true according to the program sequence.
 Description:
