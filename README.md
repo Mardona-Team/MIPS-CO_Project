@@ -1,18 +1,17 @@
-Computer Organiozation 2 Course Project 
+Computer Organization 2 Course Project 
 ------------------------------------------
 
-1)Control Unit
+<Block_Name>
+
 <Inputs>
-control unit inputs
+
 <Outputs>
-contol unit outputs
 
-it controls the flow of the mips processor
-
+<Description>
 
 
 
-END of doc
+
 
 
 
