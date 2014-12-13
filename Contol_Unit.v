@@ -3,6 +3,7 @@
 // of the blocks in the processor [RegDst,Branch,Jump,ALUSrc,ALUOp,MemToReg,RegWrite,MemWrite,MemRead]
 //This verilog code takes the opcode and inserts it in a switch case condition , and depending on the value
 // value of the opcode it changes the values of the control signals.
+// Author: Alaa El-Nouby
 
 module control_unit(RegDst,Branch,Jump,ALUSrc,ALUOp,MemToReg,RegWrite,MemWrite,MemRead,opcode);
 	
