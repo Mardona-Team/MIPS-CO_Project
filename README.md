@@ -83,23 +83,54 @@ The program counter circuit is composed of two kinds of registers, a down counte
 
 --------------------------------------------------------------------------------------------------------------------
 
-Block name : Register File 
-Description: Register file has 32 32-bits registers their general purpose is to store operands of instructions such as add, sub, lw, etc. 
+<ADDER>
+<inputs>
+32-bit address from PC
+Input  ‘4’
+Internal input cin;
 
-General strategy of block implementation: a combination of D flip-flops, and Demultiplexers. 1:32 Demultiplexers use 5 bits coming from IM to decide which register(D flip-flop) to write data in and they use different 5 bits from IM to decide which register to write data in. Control unit decides whether to enable or disable the D flip-flop used as a write register.
+<outputs>
+Sum,carry
 
-Inputs: 
--Write data coming from data memory -for lW instruction- or ALU-for arithmetic instructions- and the decision is taken using a mux.
--Write register from IM
--read register 1 from IM
--read register 2 from IM
+<Description>
+Full Adder’s function is to add 4 to the address coming from PC unit and use the result as an input to the instruction memory to move to the next instruction.
 
-Outputs:
--read data 1 to ALU
--read data 2 to ALU or data memory.
-
+------------------------------------------------------------------------------------------------------------
 
 
+<Register File>
+
+<Inputs>
+     ReadRegister1: 5-Bit address to select a register to be read through 32-Bit 
+               output port 'ReadRegister1'.        
+ ReadRegister2: 5-Bit address to select a register to be read through 32-Bit 
+                output port 'ReadRegister2'.
+WriteRegister: 5-Bit address to select a register to be written through 32-Bit
+                input port 'WriteRegister'.
+ WriteData: 32-Bit write input port.
+WriteEnable: 1-Bit control input signal.
+
+<Output>
+
+ReadData1: 32-Bit registered output. 
+ ReadData2: 32-Bit registered output.
+
+<Description> 
+
+'ReadRegister1' and 'ReadRegister2' are two 5-bit addresses to read two 
+ registers simultaneously. The two 32-bit data sets are available on ports 
+ 'ReadData1' and 'ReadData2', respectively. 'ReadData1' and 'ReadData2' are 
+ registered outputs (output of register file is written into these registers 
+ at the falling edge of the clock). You can view it as if outputs of registers
+ specified by ReadRegister1 and ReadRegister2 are written into output 
+ registers ReadData1 and ReadData2 at the falling edge of the clock. 
+
+ 'WriteEnable' signal is high during the rising edge of the clock if the input 
+ data is to be written into the register file. The contents of the register 
+ specified by address 'WriteRegister' in the register file are modified at the 
+ rising edge of the clock if 'WriteEnable' signal is high. The D-flip flops in 
+ the register file are positive-edge (rising-edge) triggered. (You have to use 
+ this information to generate the write-clock properly.) 
 
 
 
