@@ -1,14 +1,7 @@
 Computer Organization 2 Course Project 
 ------------------------------------------
 
-<Block_name>
 
-<Inputs>
-
-<Output>
-
-<Description>
-----------------------------------------------------------------------------------------------------------
 <ALU>
 
 <A_left operand(32bit),B_right operand(32bit),ALU_OP>
@@ -37,6 +30,8 @@ eg. input (0)011 1011 1110  --> output 0000 0000 0000 0000 0011 1011 1110
 >
 --------------------------------------------------------------------------------------------------------
 
+Author: Shorouk Hamed
+
 Block Name :
 -	Data Memory
 
@@ -60,6 +55,10 @@ Clock input (CLK)
 –  The CLK input is a factor ONLY during write operation.
 –  During read operation, behaves as a combinational logic block.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Author: Shorouk Hamed
+
 Block Name:
 -	Program Counter
 	
@@ -80,10 +79,30 @@ The Program Counter (PC) is a register structure that contains the address point
 The program counter circuit is composed of two kinds of registers, a down counter, an up counter, a selector, and a logic circuit. The two kinds of registers hold a pre-jump PC value and a post-jump PC value of a jump that is prescribed by a program. The down counter holds the number of repetitions of a repeat sequence that is prescribed by the program. The up counter holds a PC value that is counted up for each clock pulse. The selector selects, as a PC value to be output next, the post-jump PC value or the value that is held by the up counter. The logic circuit refers to the output value of the program counter and the output values of the registers and the down counter, and generates a signal that instructs the selector what PC value should be selected as the next output value.
 
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Author: Alaa El-Nouby
+
+Block Name:  Control Unit
+
+Inputs: Instruction[31:26]
+
+Outputs: RegDst[1:0] , Jump , Branch , MemRead , MemReg ,ALUOp[1:0], MemWrite , ALUSrc, RegWrite 
+
+Description:
+
+The control unit is responsible for setting all the control signals so that each instruction is executed properly, its input is the 5 MSB of the instruction [31:26] which is the opcode , it detects the type of the instruction being executed , so the control unit shall change the control signals accordingly to acheive the desired output.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+Author: Alaa El-Nouby
 
+Block: ALU Control
 
+Inputs: Instruction[5:0](funct) , ALUOp (from the control unit)
 
+Description:
 
+The ALU contol unit is what decides what operation will be done by the ALU , depending on the Funct field(Instruction[5:0])  and the ALUOp (from the control unit) , the ALU will do one of these five operations (AND , OR , Subtract , Add , Set on Less than)
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
