@@ -21,7 +21,7 @@ endmodule
 
 
 module mux3x2 (out,sl,in1,in2,in3);
-input [31:0] in1,in2,in3,in4;	   
+input [31:0] in1,in2,in3;	   
 input [1:0] sl;
 output [31:0] out;
 reg [31:0] out;	 

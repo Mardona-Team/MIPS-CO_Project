@@ -6,21 +6,25 @@
 // Program counter
 //-----------------------------------------------------------------------------
 
-module pc (pc,clock,branch_control,jump_control,alu_zero_control,instruction);  
+module pc (pc,pcplus4,clock,branch_control,jump_control,alu_zero_control,instruction,ReadData1,Jr);  
 		
 	input clock;	
 	input  branch_control;
 	input  alu_zero_control;
 	input  jump_control;
-	input [31:0] instruction;	
-	output[31:0] pc;
-	reg[31:0] pc;  
+	input [31:0] instruction;
+	input [31:0] ReadData1 ;
+	input Jr;
+	output[31:0] pc; 
+	output reg[31:0]  pcplus4;
+	reg[31:0] pc; 
+	
 
  //internal wires 
- reg[31:0]  pcplus4;
  wire[31:0]  badder; // final branch adress
  wire[31:0]  mux1;
  wire[31:0]  mux2;
+ wire[31:0]  mux3;
  wire[31:0] newpc;
  wire [31:0]  branchsignextend;
  wire[15:0] braddres; 
@@ -63,10 +67,11 @@ initial
  //selection line will be
  and(s1,branch_control, alu_zero_control); 
  mux2x1 m1(s1,pcplus4,badder,mux1);	 
- mux2x1 m2(jump_control,mux1,jumpFinaladd,mux2);	
+ mux2x1 m2(jump_control,mux1,jumpFinaladd,mux2);
+ mux2x1 m3(Jr,mux2,ReadData1,mux3);
  
  
- assign newpc=mux2;
+ assign newpc=mux3;
  always @(newpc) pc = newpc;
  
   
