@@ -9,7 +9,7 @@ module control_unit(RegDst,Branch,Jump,ALUSrc,ALUOp,MemToReg,RegWrite,MemWrite,M
 	
 	input [5:0] opcode;
 	output reg Branch,Jump,ALUSrc,RegWrite,MemWrite,MemRead;
-	output reg [1:0] ALUOp ;
+	output reg [2:0] ALUOp ;
 	output reg [1:0] MemToReg;
 	output reg [1:0] RegDst;
 	
