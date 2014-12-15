@@ -20,16 +20,16 @@ always @(  sl or in1 or in2 )
 endmodule
 
 
-module mux4x1 (sl,in1,in2,in3,in4,outpt);
+module mux3x2 (out,sl,in1,in2,in3);
 input [31:0] in1,in2,in3,in4;	   
 input [1:0] sl;
-output [31:0] outpt;
-reg [31:0] outpt;	 
-always @(  sl or in1 or in2 or in3 or in4 )
+output [31:0] out;
+reg [31:0] out;	 
+always @(  sl or in1 or in2 or in3  )
 	case (sl)
-	0:outpt= in1;	
-	1:outpt= in2; 
-	2:outpt= in3;	
-	3:outpt= in4;  
+	0:out= in1;	
+	1:out= in2; 
+	2:out= in3;	
+	
 	endcase
 endmodule
