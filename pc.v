@@ -87,7 +87,7 @@ module branchadder (pcplus4,branchsignextend,PCbranch) ;
 	
 	always @( pcplus4 or  branchsignextend)
 		begin
-  PCbranch <= pcplus4+(branchsignextend<<2);	 //pc +4 plus branch shift left by 2 
+  PCbranch <= pcplus4+$signed((branchsignextend<<2));	 //pc +4 plus branch shift left by 2 
 		 end
 	endmodule		
 	

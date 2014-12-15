@@ -21,15 +21,15 @@ always@(*)begin
 		4'b0001:result<=A|B;	                       //or,ori
 		4'b0000:result<=A & B;	                      //and,andi
 		4'b0111:result<=slt;	                     //slt 			 
+		4'b0101:result<=A<<B;                       //sll 
+		4'b1011:result<=~(A | B);                 //nor
 		
-		/*
-		4'b0101:result<=A>>B; //srl ~bonus
-		4'b0110:result<={{31{1'b0}}, slt};	//slt
+		/*4'b0110:result<={{31{1'b0}}, slt};	//slt
 		4'b0111:result<=A & B;  //and
 		4'b1000:result<=A & B;  //andi  
 		4'b1001:result<=A | B; //or
 		4'b1010:result<=A | B;  //ori
-		4'b1011:result<=~(A | B)	;   //nor
+	
 		  */
 	endcase
 end

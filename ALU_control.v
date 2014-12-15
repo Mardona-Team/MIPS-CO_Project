@@ -23,7 +23,9 @@ module ALU_control(operation,Jr,funct,ALUOp);
 								4'b0010: operation<=4'b0110;	//sub
 								4'b0100: operation<=4'b0000; //and
 								4'b0101: operation<=4'b0001;	//or
-								4'b1010: operation<=4'b0111;	//slt
+								4'b1010: operation<=4'b0111;	//slt 
+								4'b0000: operation<=4'b0101;    //sll
+								4'b0111: operation<=4'b1011;    //nor
 								4'b1000: begin operation<=4'b0010; Jr=1;end //jr
 							endcase	
 							end
