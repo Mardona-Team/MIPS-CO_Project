@@ -7,7 +7,7 @@ module Register_File(ReadRegister1,ReadRegister2,WriteRegister,WriteData,clk,Wri
 	output ReadData1, ReadData2;
 	
 	wire [4:0] 	ReadRegister1,ReadRegister2,WriteRegister;
-	reg [31:0] ReadData1, ReadData2;
+	wire [31:0] ReadData1, ReadData2;
 	reg [31:0] 	Registers [31:0];
 	
 	initial
@@ -46,22 +46,20 @@ module Register_File(ReadRegister1,ReadRegister2,WriteRegister,WriteData,clk,Wri
 		Registers[31] <= 32'h00000000;			
 		end
 	
-	always @ (posedge clk)
-	begin  
-					ReadData1<= Registers[ReadRegister1];
-					ReadData2<= Registers[ReadRegister2];
-	end
+	 
+					assign ReadData1= Registers[ReadRegister1];
+					assign ReadData2= Registers[ReadRegister2];
+	
 			
 			
 			
 			
-    always @(negedge clk)
-	begin
-		 if (WriteEnable==1)
-		 begin		
-			  Registers[WriteRegister] <= WriteData;
-		 end	
-	end
+   			 always @(WriteEnable)
+					begin
+					 if (WriteEnable) 
+						 Registers[WriteRegister] <= WriteData;
+			
+		        	 end
 				
 				
 endmodule

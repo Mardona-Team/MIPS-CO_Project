@@ -1,61 +1,18 @@
-													   //-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 //
 // Title       : PC
 // Design      : MIPS single cycle implementation
 // Author      : Ahmed Anwer
 // Program counter
 //-----------------------------------------------------------------------------
- module tb(clock,branch_control,jump_control,alu_zero_control,instructions,pc);  	
 
-	output clock;	
-	output  branch_control;
-	output  jump_control;
-	output  alu_zero_control; 
-	output[31:0]  instructions; 
-	
-	
-	input [31:0] pc; 	
-
-	reg clock;	
-	reg  branch_control;
-	reg  jump_control;
-	reg  alu_zero_control; 
-	reg[31:0]  instructions; 
-
-	 	 pc pc1(clock,branch_control,jump_control,alu_zero_control,instructions,pc); 
- 	
-	initial begin		
-			$monitor("%d %d  " ,clock,pc);	  	 
-	clock<=0;
-	branch_control<=0; 
-	alu_zero_control<=0; 
-	
-	jump_control<=0;
-	
-	instructions<=32'b1111111111111; 
-	#10 $finish;
-	 end
-	always begin
-		#1 clock = ~clock;	  
-
-	end		   
-	
-	
-
-	
-endmodule
-
-
-
-
-
-module pc (clock,branch_control,jump_control,alu_zero_control,instructions,pc);  
+module pc (pc,clock,branch_control,jump_control,alu_zero_control,instruction);  
 		
 	input clock;	
 	input  branch_control;
 	input  alu_zero_control;
 	input  jump_control;
-	input [31:0] instructions;	
+	input [31:0] instruction;	
 	output[31:0] pc;
 	reg[31:0] pc;  
 
@@ -69,21 +26,23 @@ module pc (clock,branch_control,jump_control,alu_zero_control,instructions,pc);
  wire[15:0] braddres; 
  
  
- assign braddres = instructions[15:0];	// adress of the branching in 15 :0
+ assign braddres = instruction[15:0];	// adress of the branching in 15 :0
  assign branchsignextend ={{16{braddres[15]}},braddres[15:0]} ;		// ssign extend
 
 
 initial
 	begin
-		   pc=0;
+		   pc=0;			
 	end
  // code start here  
  
  
-  always @(negedge clock) 
+  always @(posedge clock) 
 	begin	 
-pcplus4 <=pc+4 ;
+       pcplus4 =pc+4 ;
+	   
  	end
+ 	
 	 
  
  branchadder branchadder1(pcplus4  ,branchsignextend , badder);	   // badder   = (pc+4) + shift left 2 branch branchsignextend
@@ -92,7 +51,7 @@ pcplus4 <=pc+4 ;
  //to support jump we will :
  
  wire [28:0] jumpAdd;
- assign jumpAdd = ( instructions[25:0] << 2 );  // now it is 28 bit
+ assign jumpAdd = ( instruction[25:0] << 2 );  // now it is 28 bit
  wire[31:0] jumpFinaladd;
  assign	   jumpFinaladd={jumpAdd,pcplus4[31:28]}  ;	  
  
@@ -108,11 +67,11 @@ pcplus4 <=pc+4 ;
  
  
  assign newpc=mux2;
+ always @(newpc) pc = newpc;
  
- always @(posedge clock) 
-	begin	 
-   pc <= newpc;
- 	end
+  
+		 
+  
  
  
 endmodule

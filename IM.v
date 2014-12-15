@@ -10,21 +10,21 @@ module IM (address,clk,data_out);
 	input clk ;                 
 	input [31:0] address ;     
 	output data_out ;        
-	reg [31:0] data_out; n
-	reg[31:0] my_IM [0:1023]; // assigning the IM with a depth of 1024 addresses , each of 32 bit width. 
+	reg [31:0] data_out; 
+	reg [7:0] my_IM [0:1023]; // assigning the IM with a depth of 1024 addresses , each of 32 bit width. 
 	
 	
 	// In the initial block ,the program file is read in the IM.
 	initial
 		begin
-			$readmemhy("file name.ext",my_IM);	 // the file is written in the hexadecimal form.
+			$readmemb("IM.list",my_IM);	 // the file is written in the hexadecimal form.
 		end	
 		
 		
 	// In the always block,on the positive edge of the clock the required address from the file is put into data_out 
 	always @(posedge clk )
 		begin
-			data_out = my_IM[address];
+			data_out = {my_IM[address],my_IM[address+1],my_IM[address+2],my_IM[address+3]};
 		end	
 	endmodule
 	

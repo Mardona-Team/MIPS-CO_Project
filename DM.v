@@ -14,36 +14,39 @@ written in the required register in the register file.
 In the store instruction, memory write is high (1) and the value read from the destination register in the ALU 
 is written in the required address in the program file through the data memory.
 */
-module DM (data_write, clk, mem_write,address,data_read);
+module DM (data_read,data_write, clk, mem_write,address,mem_read);
 	input clk ;
-	input mem_write;	     // the memory write signal
-	input [31:0] address ;
+	input mem_write;// the memory write signal
+	input [31:0] address ; 
+	input mem_read;
 	input [31:0] data_write ;
 	output data_read ;
 	reg[31:0] data_read;
-	reg[31:0] my_DM [0:1023];// Assigning data memory as of depth 1024 addresses , each of 32 bit wide
+	reg[31:0] my_DM [0:1023];// Assigning data memory as of depth 1024 addresses , each of 32 bit wide 
+	integer i;
 	
 	// In the Initial block, the program file to be executed is read into the data memory
 	initial 
 		begin
-			$memreadh("test.txt",my_DM);	// the file is written in hexadecimal form 
+		  for(i=0;i<1024;i++)
+			  begin
+			  my_DM[i]=0;
+			  end
 		end	  
 		
 	/* In the always block,at the clock edge it's checked whether the memory write signal
 	is active or not */
 	always @ (posedge clk)
 		begin
-			if (mem_write = = 1)
+			if (mem_write == 1)
 				begin
 					my_DM [address] = data_write ;
-				end	 				
-				
-	/* In this always block, if the write signal is inactive then value from the 
-		memory address is read to be wriiten in the destination register in the register file*/
-	always @ (my_DM[address])
-		begin
-			data_read = my_DM[address];
-		end
+				end	
+			else if(mem_read ==1)
+				begin
+			       data_read = my_DM[address];
+			    end
+			end
 		
 endmodule
 			

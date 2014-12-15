@@ -16,11 +16,13 @@ assign slt=($signed(A)<$signed(B))?1'b1:1'b0;
 
 always@(*)begin
 	case (ctrl)
-		4'b0000:result<=($signed(A)+$signed(B));	   //add
-		4'b0001:result<=($signed(A)+$signed(B));	   //addi
-		4'b0010:result<=($signed(A)-$signed(B));	   //sub ~bonus
-		4'b0011:result<=($signed(A)*$signed(B));	   //mul ~bonus
-		4'b0100:result<=A<<B;	//sll 			 
+		4'b0010:result<=($signed(A)+$signed(B));	   //add,lw,sw,addi
+		4'b0110:result<=($signed(A)-$signed(B));	   //sub
+		4'b0001:result<=A|B;	                       //or,ori
+		4'b0000:result<=A & B;	                      //and,andi
+		4'b0111:result<=slt;	                     //slt 			 
+		
+		/*
 		4'b0101:result<=A>>B; //srl ~bonus
 		4'b0110:result<={{31{1'b0}}, slt};	//slt
 		4'b0111:result<=A & B;  //and
@@ -28,7 +30,7 @@ always@(*)begin
 		4'b1001:result<=A | B; //or
 		4'b1010:result<=A | B;  //ori
 		4'b1011:result<=~(A | B)	;   //nor
-		
+		  */
 	endcase
 end
 endmodule
