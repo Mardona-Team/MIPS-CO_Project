@@ -1,0 +1,14 @@
+C:\Users\Ahmed\AppData\Local\Temporary Projects\assembly\bin\Debug\assembly.exe
+C:\Users\Ahmed\AppData\Local\Temporary Projects\assembly\bin\Debug\assembly.pdb
+C:\Users\Ahmed\AppData\Local\Temporary Projects\assembly\obj\x86\Debug\assembly.Form1.resources
+C:\Users\Ahmed\AppData\Local\Temporary Projects\assembly\obj\x86\Debug\assembly.Properties.Resources.resources
+C:\Users\Ahmed\AppData\Local\Temporary Projects\assembly\obj\x86\Debug\assembly.csproj.GenerateResource.Cache
+C:\Users\Ahmed\AppData\Local\Temporary Projects\assembly\obj\x86\Debug\assembly.exe
+C:\Users\Ahmed\AppData\Local\Temporary Projects\assembly\obj\x86\Debug\assembly.pdb
+C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\obj\x86\Debug\assembly.exe
+C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\obj\x86\Debug\assembly.pdb
+C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\bin\Debug\assembly.exe
+C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\bin\Debug\assembly.pdb
+C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\obj\x86\Debug\assembly.Form1.resources
+C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\obj\x86\Debug\assembly.Properties.Resources.resources
+C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\obj\x86\Debug\assembly.csproj.GenerateResource.Cache
