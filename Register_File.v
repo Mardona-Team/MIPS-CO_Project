@@ -54,7 +54,7 @@ module Register_File(ReadRegister1,ReadRegister2,WriteRegister,WriteData,clk,Wri
 			
 			
 			
-   			 always @(WriteEnable)
+   			 always @(negedge clk)
 					begin
 					 if (WriteEnable) 
 						 Registers[WriteRegister] <= WriteData;
