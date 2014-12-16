@@ -1,0 +1,12 @@
+[Version]
+Version=9.1
+[Designs]
+register_file=.\Register_File\Register_File.adf
+[Browser]
+sort=order
+mode=none
+[Order]
+order=1
+macro=
+[Expand]
+register_file=1
