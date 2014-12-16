@@ -1,0 +1,67 @@
+1- Write a MIPS assembly program that places the sum of the four integer 
+variables b, c, d, and e into integer variable a, Store a in another address in memory
+
+C++ code :
+
+int a ,b,c,d,e,f;
+a = b + c + d + e ;
+f= a ;
+
+Registers :
+$s1 = b , $s2 = c, $s3= d , $s4= e , $s5 = a , $s6 =f
+
+Assembly code :
+add $s3, $s1, $s2 
+add $s5 ,$s3, $s4
+sw  $s5 ,0($s6)
+
+2-Write a MIPS assembly code that  executes this C++ code :
+
+int i , x ;
+
+If (i < 5)
+   x = i;
+
+
+Registers:
+$s1 = 5 , $s3 = i ,$s5 = x
+
+Assembly code :
+addi $s1 , $zero ,5
+slt  $at , $s3   ,$s1
+beq  $at , $szero,Exit
+add  $s5 , $s3 ,$zero 
+Exit:
+
+3-Write a MIPS assembly code that executes the following :
+
+For ( int i =0;i<j;i++)
+A[i] = B[i]
+
+Registers : $t0 = i, $t1 = j
+
+Assembly code :
+
+add  $t0 , $0   , $0
+slt  $at , $t0  , $t1
+beq  $at , $zero, ex
+lp:  sll   $t2  , $t0, 2
+addi $t3 , $t2  , $s1
+lw   $t4 , 0($t3)
+addi $t5 , $t2  , $s0
+sw   $t4 , 0($t5)
+addi $t0 , $t0  , 1
+slt  $at , $t1  , $t0
+beq  $at , $zero, lp
+ex:
+
+
+
+
+
+
+
+
+
+
+
