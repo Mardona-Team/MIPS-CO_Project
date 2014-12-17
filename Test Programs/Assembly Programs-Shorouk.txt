@@ -11,18 +11,6 @@ Registers :
 $s1 = b , $s2 = c, $s3= d , $s4= e , $s5 = a , $s6 =f
 
 Assembly code :
-<<<<<<< HEAD
-add $s3, $s1, $s2 
-add $s5 ,$s3, $s4
-sw  $s5 ,0($s6)
-
-2-Write a MIPS assembly code that  executes this C++ code :
-
-int i , x ;
-
-If (i < 5)
-   x = i;
-=======
 
 addi $s1 ,$zero ,6
 addi $s2 ,$zero ,4
@@ -41,7 +29,6 @@ int x  = 0 ;
 while (i < 5)
    x += i;
 
->>>>>>> master
 
 
 Registers:
@@ -49,18 +36,12 @@ $s1 = 5 , $s3 = i ,$s5 = x
 
 Assembly code :
 addi $s1 , $zero ,5
-<<<<<<< HEAD
-slt  $at , $s3   ,$s1
-beq  $at , $szero,Exit
-add  $s5 , $s3 ,$zero 
-=======
 addi $s3 , $zero ,1
 add  $s5 , $zero ,$zero
 L1:  slt   $at   ,$s3 ,$s1
 beq  $at , $szero,Exit
 add  $s5 , $s5   ,$s3
 jal L1 
->>>>>>> master
 Exit:
 
 3-Write a MIPS assembly code that executes the following :
