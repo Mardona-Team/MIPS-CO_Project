@@ -1,0 +1,81 @@
+1)A certain word is stored in memory. The address of one of the fisrt byte of this word is
+stored in register $t0 Consider the following program and Write MIPS assembly code that does the same operation :
+• The whole word including the byte is read from the memory to $s0.
+• For the first byte (whose address was originally in $t0), its 8 bits are set to 1.
+• The whole word is stored again in memory in its same old location. 
+
+
+lw $s0, 0($t0)
+ori $s0, $s0, 11111111
+sw $s0, 0($t0)
+
+
+
+
+
+
+
+
+
+
+2)1. Consider the following C-language code segment:
+i=0;
+sum=0;
+do
+ sum += A[i++];
+while(i < n);
+i=0;
+Assume i, sum, and n are stored in registers $s0, $s1, and $s2, respectively and A is an
+array of integers with base stored in register $s3. You can use register $t0 for any
+temporary calculations.
+Write a MIPS assembly code equivalent to the above code segment.
+
+
+
+
+addi $s0, $zero, 0
+addi $s1, $zero, 0
+lw $t0, 0($s3)
+lw $t1, 0($t0)
+loop:add $s1, $s1, $t1
+    addi $t0, $t0, 4
+     slt $t2, $t0, $s2
+     beq $t2, $s3, loop
+     addi $s0, $zero, 0
+
+
+
+
+3)1. Consider the following C-language code segment:
+x = 0;
+switch(k)
+{
+case 3: x++;
+case 2: x++;
+case 1: x++; break;
+
+ default: x --;
+}
+Assume variables k and x are stored in registers $s0 and $s1, respectively.
+Write a MIPS assembly code equivalent to the above code segment.
+
+
+addi $s1, $zero,0
+addi $t1, $zero, 1
+addi $t2, $zero, 2
+addi $t3, $zero, 3
+beq  $s0, $t3, case3
+beq  $s0, $t2, case2
+beq  $s0, $t1, case1
+default : addi $s1, $s1, -1
+case3: addi $s1, $s1, 1
+case2: addi $s1, $s1, 1
+case1: addi $s1, $s1, 1
+       beq $s0, $t1, Exit
+
+Exit
+
+
+
+
+
