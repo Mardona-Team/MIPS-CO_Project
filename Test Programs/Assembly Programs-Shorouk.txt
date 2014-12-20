@@ -1,0 +1,110 @@
+1- Write a MIPS assembly program that places the sum of the four integer 
+variables b, c, d, and e into integer variable a, Store a in another address in memory
+
+C++ code :
+
+int a ,b,c,d,e,f;
+a = b + c + d + e ;
+f= a ;
+
+Registers :
+$s1 = b , $s2 = c, $s3= d , $s4= e , $s5 = a , $s6 =f
+
+Assembly code :
+
+addi $s1 ,$zero ,6
+addi $s2 ,$zero ,4
+addi $s4 ,$szero,3
+add  $s3 ,$s1   ,$s2 
+add  $s5 ,$s3   , $s4
+sw   $s5 ,0($s6)
+
+Machine Code :
+00100000000100010000000000000110
+00100000000100100000000000000100
+00100000000101000000000000000011
+00000010001100101001100000100000
+00000010011101001010100000100000
+10101110110101010000000000000000
+
+
+2-Write a MIPS assembly code that  executes this C++ code :
+
+int i  = 1 ;
+int x  = 0 ;
+while (i < 5)
+   x += i;
+
+
+
+Registers:
+$s1 = 5 , $s3 = i ,$s5 = x
+
+Assembly code :
+addi $s1 , $zero ,5
+addi $s3 , $zero ,1
+add  $s5 , $zero ,$zero
+L1:  slt   $at   ,$s3 ,$s1
+beq  $at , $szero,Exit
+add  $s5 , $s5   ,$s3
+jal L1 
+Exit:
+
+Machine Code:
+00100000000100010000000000000101
+00100000000100110000000000000001
+00000000000000001010100000100000
+00000010011100010000100000101010
+00010000001000000000000000001100
+00000010101100111010100000100000
+00001100000000000000000000001100
+
+
+
+3-Write a MIPS assembly code that executes the following :
+
+For ( int i =0;i<j;i++)
+A[i] = B[i]
+
+Registers : $t0 = i, $t1 = j
+
+Assembly code :
+addi $t1,$zero,4
+add $t0,$zero,$zero
+slt $at,$t0,$t1
+beq $at,$zero,ex
+lp:sll $t2,$t0,2
+add $t3,$t2 ,$s1
+lw $t4,0($t3)
+add $t5,$t2,$s0
+sw $t4,0($t5)
+addi $t0,$t0,1
+slt $at,$t1,$t0
+beq $at,$zero,lp
+ex:
+
+Machine code :
+00100000000010010000000000000100
+00000000000000000100000000100000
+00000001000010010000100000101010
+00010000001000000000000000100100
+00000000000010000101000010000000
+00000001010100010101100000100000
+10001101011011000000000000000000
+00000001010100000110100000100000
+10101101101011000000000000000000
+00100001000010000000000000000001
+00000001001010000000100000101010
+00010000001000001111111111100100
+
+
+
+
+
+
+
+
+
+
+
+

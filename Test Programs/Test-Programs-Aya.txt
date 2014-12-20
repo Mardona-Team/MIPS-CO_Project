@@ -1,0 +1,117 @@
+1)A certain word is stored in memory. The address of one of the fisrt byte of this word is
+stored in register $t0 Consider the following program and Write MIPS assembly code that does the same operation :
+• The whole word including the byte is read from the memory to $s0.
+• For the first byte (whose address was originally in $t0), its 8 bits are set to 1.
+• The whole word is stored again in memory in its same old location. 
+
+assembly code :
+
+lw $s0, 0($t0)
+ori $s0, $s0, 255
+sw $s0, 0($t0)
+
+
+Machine code :
+10001101000100000000000000000000
+00110110000100000000000011111111
+10101101000100000000000000000000
+
+
+
+
+
+
+2)1. Consider the following C-language code segment:
+i=0;
+sum=0;
+n=5;
+do
+ sum =+A[i++];
+while(i < n);
+
+Assume i, sum, and n are stored in registers $s0, $s1, and $s2, respectively and A is an
+array of integers with base stored in register $s3. You can use register $t0 for any
+temporary calculations.
+Write a MIPS assembly code equivalent to the above code segment.
+
+
+
+Assembly code :
+
+addi $s0, $zero, 0
+addi $s1, $zero, 0
+addi $s2, $zero, 5
+lw $t0, 0($s3)
+sll $s0, $s0,2
+add $t1, $s1, $s0
+loop:addi $s0, $s0, 1
+     add $s1, $s1, $t1
+     slt $t2, $s2, $s1
+     beq $t2, $zero, loop
+Exit:
+
+
+Machine code :
+00100000000100000000000000000000
+00100000000100010000000000000000
+00100000000100100000000000000101
+00000010001100001000100000100000
+00100010000100000000000000000001
+00000010000100100100000000101010
+00100000000010010000000000000001
+00010001000010011111111111110000
+00100000000100000000000000000000
+
+
+
+
+3)1. Consider the following C-language code segment:
+x = 0;
+k=1;
+switch(k)
+{
+case 3: x+3;
+case 2: x+2;
+case 1: x++; break;
+
+ default: x --;
+}
+Assume variables k and x are stored in registers $s0 and $s1, respectively.
+Write a MIPS assembly code equivalent to the above code segment.
+
+Assembly code:
+
+addi $s1, $zero,0
+addi $t1, $zero, 1
+addi $t2, $zero, 2
+addi $t3, $zero, 3
+addi $s0, $zero, 1
+beq  $s0, $t3, case3
+beq  $s0, $t2, case2
+beq  $s0, $t1, case1
+default : addi $s1, $s1, -1
+case3: addi $s1, $s1, 1
+case2: addi $s1, $s1, 1
+case1: addi $s1, $s1, 1
+       beq $s0, $t1, Exit
+Exit:
+
+Machine Code :
+
+00100000000100010000000000000000
+00100000000010010000000000000001
+00100000000010100000000000000010
+00100000000010110000000000000011
+00010010000010110000000000010000
+00010010000010100000000000010000
+00010010000010010000000000010000
+00100010001100011111111111111111
+00100010001100010000000000000001
+00100010001100010000000000000001
+00100010001100010000000000000001
+00010010000010010000000000000100
+
+
+
+
+

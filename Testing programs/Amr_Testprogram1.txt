@@ -1,0 +1,31 @@
+Program #1 : sum of Array elements
+------------            
+
+C-code :
+
+         int sum (*array,int size)
+            {
+              int sum=0;
+              for(int i=0;i<=size;i++)
+                 sum+=array[i];
+               
+               return sum
+                }
+
+array address-->$s0  array size-->$s1
+
+
+Assembly :
+          
+         add $t0,$s0,$zero  #storing address
+         add $t1,$zero,$zero #intiating counter
+         add $s2,$zero,$zero #intiating sum
+
+    loop:beq $t1,$s1,EXIT
+         lw $t2,0($t0)
+         add $s2,$s2,$t2
+         sll $t0,$t0,2
+         addi $t1,$t1,1
+
+         jal loop
+    EXIT

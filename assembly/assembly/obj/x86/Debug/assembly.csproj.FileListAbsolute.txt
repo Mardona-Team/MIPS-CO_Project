@@ -12,3 +12,5 @@ C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\bin\Debug
 C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\obj\x86\Debug\assembly.Form1.resources
 C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\obj\x86\Debug\assembly.Properties.Resources.resources
 C:\Users\Ahmed\Documents\Visual Studio 2010\Projects\assembly\assembly\obj\x86\Debug\assembly.csproj.GenerateResource.Cache
+C:\Users\alaa\Desktop\MIPS-CO_Project\assembly\assembly\obj\x86\Debug\assembly.exe
+C:\Users\alaa\Desktop\MIPS-CO_Project\assembly\assembly\obj\x86\Debug\assembly.pdb
