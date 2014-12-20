@@ -68,7 +68,7 @@ namespace assembly
                     
                     instructions[i] = ltemp[1];
                     labletable[lablepointer, 0] = ltemp[0];
-                    labletable[lablepointer, 1] = (i*4).ToString();
+                    labletable[lablepointer, 1] = (i).ToString();
 
                     lablepointer++;
 
@@ -165,7 +165,7 @@ namespace assembly
                                 addr = labletable[l, 1];
                             }
                         }
-                        binary[i, 3] = Extend2((Convert.ToInt32(addr) - (4 * i)),16);
+                        binary[i, 3] = Extend2((Convert.ToInt32(addr) - (i+1)),16);
                         break;
 
                     case "j" :
@@ -427,9 +427,21 @@ namespace assembly
                 using (StreamWriter outfile = new StreamWriter(saveFileDialog1.FileName))
                 {
                     string[] tt = asmbly_out.Text.Split('\n');
-                    for (int i = 0; i < tt.Length; i++)
+                    string[] ttt = new string[4];
+                    for (int i = 0; i < tt.Length-1; i++)
                     {
-                        outfile.WriteLine(tt[i]);
+                        ttt[0] = tt[i].Substring(0,8);
+                        ttt[1] = tt[i].Substring(8, 8);
+                        ttt[2] = tt[i].Substring(16, 8);
+                        ttt[3] = tt[i].Substring(24, 8);
+
+
+                        outfile.WriteLine(ttt[0]);
+                        outfile.WriteLine(ttt[1]);
+                        outfile.WriteLine(ttt[2]);
+                        outfile.WriteLine(ttt[3]);
+                        
+
                     }
                     outfile.Close();
                 }
