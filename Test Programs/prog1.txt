@@ -1,0 +1,18 @@
+addi $s0,$zero,20
+addi $s1,$zero,4
+addi $s2,$zero,1992
+addi $s3,$zero,17
+addi $s4,$zero,12
+addi $s5,$zero,2014
+sub $t0,$s5,$s2
+sub $t1,$s4,$s1
+slt $t2,$s4,$zero
+beq $t2,$zero,s1
+addi $t0,$t0,-1
+addi $t1,$t1,12
+s1:sub $t3,$s3,$s0
+slt $t4,$s3,$zero
+beq $t4,$zero,s2
+addi $t1,$t1,-1
+addi $t3,$t3,30
+s2:
