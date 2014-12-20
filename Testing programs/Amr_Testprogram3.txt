@@ -1,0 +1,26 @@
+Program #3: Increment Each array element by 1
+----------
+
+C-code: 
+        void (int *array,int size)
+          {
+            for(int i=0;i<=size;i++)
+                Array[i]++;
+              }
+
+Array address-->$s0 Array size-->$s1
+
+
+Assembly:
+         add $t0,$s0,$zero         #storing address
+         add $t1,$zero,zero        #intiating counter
+    loop:beq $t1,$s1,EXIT
+         lw $t2,0($t0)       
+         addi $t2,$t2,1
+         sw $t2,0($t0)
+         sll $t0,$t0,2             #increment address
+         addi $t1,$t1,1            #increment counter
+         jal loop 
+    EXIT:    
+
+         
