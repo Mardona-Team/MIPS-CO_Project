@@ -13,8 +13,8 @@ module control_unit(RegDst,Branch,Jump,ALUSrc,ALUOp,MemToReg,RegWrite,MemWrite,M
 	output reg [1:0] MemToReg;
 	output reg [1:0] RegDst;
 	
-	parameter lw=6'b100011,sw=6'b101011,r_format=6'b000000,beq=6'b000100,addi=6'b001000,andi=6'b001100
-	         ,ori=6'b001101,jal=6'b000011 ;
+	parameter dummy=0,r_format=6'b000000,beq=6'b000100,addi=6'b001000,andi=6'b001100
+	         ,ori=6'b001101,jal=6'b000011,lw=6'b100011,sw=6'b101011 ;
 	
 	
 	always @(opcode) begin 

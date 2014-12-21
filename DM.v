@@ -38,10 +38,12 @@ module DM (data_read,data_write, clk, mem_write,address,mem_read);
 			if (mem_write == 1)
 				begin
 					{my_DM[address],my_DM[address+1],my_DM[address+2],my_DM[address+3]} = data_write ;
-				end	
-			else if(mem_read ==1)
+		        end	
+			end	
+	always @ (negedge clk) begin		
+			 if(mem_read ==1)
 				begin
-			       data_read = my_DM[address];
+			       data_read = {my_DM[address],my_DM[address+1],my_DM[address+2],my_DM[address+3]};
 			    end
 			end
 		

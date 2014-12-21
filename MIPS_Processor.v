@@ -21,7 +21,7 @@ module mips();
 	wire  zero ;
 	wire [31:0] data_read;
 	wire RfWrite;
-	reg [4:0] ra=31;
+	reg [4:0] ra=2'b11111;
 	integer cur_time;
 	integer count;
 	
