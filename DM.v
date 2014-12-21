@@ -22,16 +22,13 @@ module DM (data_read,data_write, clk, mem_write,address,mem_read);
 	input [31:0] data_write ;
 	output data_read ;
 	reg[31:0] data_read;
-	reg[31:0] my_DM [0:1023];// Assigning data memory as of depth 1024 addresses , each of 32 bit wide 
+	reg[7:0] my_DM [0:1023];// Assigning data memory as of depth 1024 addresses , each of 32 bit wide 
 	integer i;
 	
 	// In the Initial block, the program file to be executed is read into the data memory
 	initial 
 		begin
-		  for(i=0;i<1024;i++)
-			  begin
-			  my_DM[i]=0;
-			  end
+		$readmemb("DM.list",my_DM);  // the file is written in the Binary form.
 		end	  
 		
 	/* In the always block,at the clock edge it's checked whether the memory write signal
@@ -40,7 +37,7 @@ module DM (data_read,data_write, clk, mem_write,address,mem_read);
 		begin
 			if (mem_write == 1)
 				begin
-					my_DM [address] = data_write ;
+					{my_DM[address],my_DM[address+1],my_DM[address+2],my_DM[address+3]} = data_write ;
 				end	
 			else if(mem_read ==1)
 				begin

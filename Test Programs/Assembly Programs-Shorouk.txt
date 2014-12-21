@@ -14,7 +14,7 @@ Assembly code :
 
 addi $s1 ,$zero ,6
 addi $s2 ,$zero ,4
-addi $s4 ,$szero,3
+addi $s4 ,$zero,3
 add  $s3 ,$s1   ,$s2 
 add  $s5 ,$s3   , $s4
 sw   $s5 ,0($s6)

@@ -47,8 +47,8 @@ module Register_File(ReadRegister1,ReadRegister2,WriteRegister,WriteData,clk,Wri
 		end
 	
 	 
-					assign ReadData1= Registers[ReadRegister1];
-					assign ReadData2= Registers[ReadRegister2];
+					assign #400 ReadData1= Registers[ReadRegister1];
+					assign #400 ReadData2= Registers[ReadRegister2];
 	
 			
 			
@@ -56,9 +56,10 @@ module Register_File(ReadRegister1,ReadRegister2,WriteRegister,WriteData,clk,Wri
 			
    			 always @(negedge clk)
 					begin
-					 if (WriteEnable) 
+					 if (WriteEnable)begin 
+						 if (WriteRegister!=0)
 						 Registers[WriteRegister] <= WriteData;
-			
+						end
 		        	 end
 				
 				
