@@ -1,0 +1,37 @@
+
+2-grade calculator:dificality low
+
+the user will be asked to enter his grade from 1500 and the system will tell him what is his grade , and this will be done by slt and cases
+
+the user first will enter his grad at s0
+
+and then grads is distrbuted from s1 to s4
+the result is in t5
+
+
+
+
+addi $s0,$zero,52
+addi $s1,$zero,750
+addi $s2,$zero,975
+addi $s3,$zero,1125
+addi $s4,$zero,1275
+slt $t0,$s0,$s1
+slt $t1,$s0,$s2
+slt $t2,$s0,$s3
+slt $t3,$s0,$s4
+beq $t3,$zero,A
+beq $t2,$zero,B
+beq $t1,$zero,C
+beq $t0,$zero,D
+jal F
+A:addi $t5,$zero,85
+jal Exit
+B:addi $t5,$zero,75
+jal Exit
+C:addi $t5,$zero,65
+jal Exit
+D:addi $t5,$zero,50
+jal Exit
+F:addi $t5,$zero,0
+Exit:
