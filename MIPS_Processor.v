@@ -21,7 +21,7 @@ module mips();
 	wire  zero ;
 	wire [31:0] data_read;
 	wire RfWrite;
-	reg [4:0] ra=2'b11111;
+	reg [4:0] ra=31;
 	integer cur_time;
 	integer count;
 	
@@ -34,7 +34,7 @@ module mips();
 	ALU_control ac1(operation,Jr,instruction[5:0],ALUOp);
 	sign_ext sx1(sign_ext_out,instruction[15:0]);
 	mux2x1 #30 m2(ALUSrc,ReadData2,sign_ext_out,mux2_out);	
-	ALU #100 a1(result,zero,ReadData1,mux2_out,operation);
+	ALU #100 a1(result,zero,ReadData1,mux2_out,operation,instruction[10:6]);
 	DM #300 dm1(data_read,ReadData2, clk, MemWrite,result,MemRead);
 	mux3x2 #30 m3(mux3_out,MemToReg,result,data_read,pcplus4); 
 	and(RfWrite,RegWrite,~Jr);

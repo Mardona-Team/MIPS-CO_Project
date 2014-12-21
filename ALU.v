@@ -1,12 +1,13 @@
-module ALU(result,zero,A,B,ctrl);		  
+module ALU(result,zero,A,B,ctrl,shmnt);		  
 
 //input &output declaration 
-input A,B,ctrl;
+input A,B,ctrl,shmnt;
 output result,zero;
 //ports declaration	
- wire[31:0] A;
- wire[31:0] B;
+wire[31:0] A;
+wire[31:0] B;
 wire[3:0]ctrl;
+wire [4:0]shmnt;
 reg[31:0]result; 
 wire zero;
 wire slt;
@@ -21,7 +22,7 @@ always@(*)begin
 		4'b0001:result<=A|B;	                       //or,ori
 		4'b0000:result<=A & B;	                      //and,andi
 		4'b0111:result<=slt;	                     //slt 			 
-		4'b0101:result<=A<<B;                       //sll 
+		4'b0101:result<=B<<shmnt;                       //sll 
 		4'b1011:result<=~(A | B);                 //nor
 		
 		/*4'b0110:result<={{31{1'b0}}, slt};	//slt
