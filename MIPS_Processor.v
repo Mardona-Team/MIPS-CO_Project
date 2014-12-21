@@ -21,7 +21,6 @@ module mips();
 	wire  zero ;
 	wire [31:0] data_read;
 	wire RfWrite;
-	reg [4:0] ra=2'b11111;
 	integer cur_time;
 	integer count;
 	
@@ -29,7 +28,7 @@ module mips();
 	pc pc1(pc,pcplus4,clk,Branch,Jump,zero,instruction,ReadData1,Jr);
 	IM #400 im1(pc,clk,instruction,count);
 	control_unit #80 c1(RegDst,Branch,Jump,ALUSrc,ALUOp,MemToReg,RegWrite,MemWrite,MemRead,instruction[31:26]);	
-	mux3x2 #30 m1(mux1_out,RegDst,instruction[20:16],instruction[15:11],ra);
+	mux3x2 #30 m1(mux1_out,RegDst,instruction[20:16],instruction[15:11],31);
 	Register_File r1(instruction[25:21],instruction[20:16],mux1_out,mux3_out,clk,RfWrite,ReadData1,ReadData2); //Delay is inside the module
 	ALU_control ac1(operation,Jr,instruction[5:0],ALUOp);
 	sign_ext sx1(sign_ext_out,instruction[15:0]);

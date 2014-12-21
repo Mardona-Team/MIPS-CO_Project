@@ -14,22 +14,24 @@ module ALU_control(operation,Jr,funct,ALUOp);
 	
 	always @ (ALUOp or funct) begin 
 		
-	   if(ALUOp==2'b00)	begin operation <= 4'b0010; Jr=0; end	//lw & sw & addi
-	   else if (ALUOp[0]==1) begin operation <= 4'b0110; Jr=0; end  //Beq	
-	   else if (ALUOp[2]==1 && ALUOp[0]==1) begin operation<=4'b0001; Jr=0; end //ori
-	   else if (ALUOp[2]==1 && ALUOp[0]==0) begin operation<=4'b0000; Jr=0; end //andi	   
+	   if(ALUOp==2'b00)	 operation <= 4'b0010; 	//lw & sw & addi
+	   else if (ALUOp[0]==1)  operation <= 4'b0110;  //Beq	
+	   else if (ALUOp[2]==1 && ALUOp[0]==1)  operation<=4'b0001;  //ori
+	   else if (ALUOp[2]==1 && ALUOp[0]==0)  operation<=4'b0000;  //andi	   
        else if (ALUOp[1]==1)begin  
 							case(funct)	  //r-formate
-								6'b100000: begin operation<=4'b0010; Jr=0; end	//add
-								6'b100001: begin operation<=4'b0110; Jr=0; end	//sub
-								6'b100100: begin operation<=4'b0000; Jr=0; end //and
-								6'b100101: begin operation<=4'b0001; Jr=0; end	//or
-							    6'b101010: begin operation<=4'b0111; Jr=0; end//slt 
-								6'b000000: begin operation<=4'b0101; Jr=0; end   //sll
-								6'b100111: begin operation<=4'b1011; Jr=0; end   //nor
-								6'b001000: begin operation<=4'b0010; Jr=1; end //jr
+								6'b100000: operation<=4'b0010;  	//add
+								6'b100010: operation<=4'b0110;  //sub
+								6'b100100: operation<=4'b0000;  //and
+								6'b100101: operation<=4'b0001;  //or
+							    6'b101010: operation<=4'b0111; //slt 
+								6'b000000: operation<=4'b0101; //sll
+								6'b100111: operation<=4'b1011;  //nor
+								6'b001000: operation<=4'b0010;  //jr
 							endcase	
 							end
+		if (funct==6'b001000) Jr=1;
+			else Jr=0;
 			
 	   end			
 endmodule 
