@@ -20,14 +20,14 @@ module ALU_control(operation,Jr,funct,ALUOp);
 	   else if (ALUOp[2]==1 && ALUOp[0]==0) begin operation<=4'b0000; Jr=0; end //andi	   
        else if (ALUOp[1]==1)begin  
 							case(funct)	  //r-formate
-								4'b0000: begin operation<=4'b0010; Jr=0; end	//add
-								4'b0010: begin operation<=4'b0110; Jr=0; end	//sub
-								4'b0100: begin operation<=4'b0000; Jr=0; end //and
-								4'b0101: begin operation<=4'b0001; Jr=0; end	//or
-								4'b1010: begin operation<=4'b0111; Jr=0; end//slt 
-								4'b0000: begin operation<=4'b0101; Jr=0; end   //sll
-								4'b0111: begin operation<=4'b1011; Jr=0; end   //nor
-								4'b1000: begin operation<=4'b0010; Jr=1; end //jr
+								6'b100000: begin operation<=4'b0010; Jr=0; end	//add
+								6'b100001: begin operation<=4'b0110; Jr=0; end	//sub
+								6'b100100: begin operation<=4'b0000; Jr=0; end //and
+								6'b100101: begin operation<=4'b0001; Jr=0; end	//or
+							    6'b101010: begin operation<=4'b0111; Jr=0; end//slt 
+								6'b000000: begin operation<=4'b0101; Jr=0; end   //sll
+								6'b100111: begin operation<=4'b1011; Jr=0; end   //nor
+								6'b001000: begin operation<=4'b0010; Jr=1; end //jr
 							endcase	
 							end
 			
