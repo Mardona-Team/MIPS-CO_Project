@@ -8,10 +8,13 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 
+
 namespace assembly
 {
+
     public partial class Form1 : Form
     {
+        public string er = "";
         public Form1()
         {
             InitializeComponent();
@@ -19,6 +22,11 @@ namespace assembly
 
         private void button1_Click(object sender, EventArgs e)
         {
+            er = "";
+            Elist.Text += "Starting converting\n";
+            asmbly_out.Text = "";
+
+           
             string[] instr_line = assembly.Text.Split('\n');
 
             string[] splitpoint = assembly.Text.Split(':');
@@ -59,50 +67,59 @@ namespace assembly
 
             for (int i = 0; i < instructions.Length; i++)
             {
-                //spliting the lables
-
-                string[] ltemp = instructions[i].Split(':');
-                
-                if (ltemp.Length == 2)
+                try
                 {
-                    
-                    instructions[i] = ltemp[1];
-                    labletable[lablepointer, 0] = ltemp[0];
-                    labletable[lablepointer, 1] = (i).ToString();
+                    //spliting the lables
 
-                    lablepointer++;
+                    string[] ltemp = instructions[i].Split(':');
 
+                    if (ltemp.Length == 2)
+                    {
+
+                        instructions[i] = ltemp[1];
+                        labletable[lablepointer, 0] = ltemp[0];
+                        labletable[lablepointer, 1] = (i).ToString();
+
+                        lablepointer++;
+
+                    }
+
+
+                    if (instructions[i] != "")
+                    {
+                        string[] temp = instructions[i].Split(' ');
+
+                        int j = 0;
+
+
+                        while (temp[j] == "")
+                        {
+                            j++;
+                        }
+
+                        instsplit[i, 0] = temp[j];
+
+                        string parameters = "";
+
+                        for (int x = j + 1; x < temp.Length; x++)
+                        {
+                            parameters += temp[x];
+                        }
+
+                        string[] paramt = parameters.Split(',');
+
+                        for (int y = 0; y < paramt.Length; y++)
+                        {
+                            instsplit[i, y + 1] = paramt[y];
+                        }
+
+
+                    }
+                  
                 }
-                
-               
-                if (instructions[i] != "")
+                catch
                 {
-                    string[] temp = instructions[i].Split(' ');
-
-                    int j = 0;
-
-
-                    while (temp[j] == "")
-                    {
-                        j++;
-                    }
-
-                    instsplit[i, 0] = temp[j];
-
-                    string parameters = "";
-
-                    for (int x = j + 1; x < temp.Length; x++)
-                    {
-                        parameters += temp[x];
-                    }
-
-                    string[] paramt = parameters.Split(',');
-
-                    for (int y = 0; y < paramt.Length; y++)
-                    {
-                        instsplit[i, y + 1] = paramt[y];
-                    }
-
+                    er += "syntax erorre in line" + i+"\n";
 
                 }
             }
@@ -114,9 +131,9 @@ namespace assembly
                 {
                     case "add":
                          binary[i, 0] = "000000";//op code
-                         binary[i, 1] = get_reg(instsplit[i, 2]); //rs
-                         binary[i, 2] = get_reg(instsplit[i, 3]);//rt
-                         binary[i, 3] = get_reg(instsplit[i, 1]);//
+                         binary[i, 1] = get_reg(instsplit[i, 2],i); //rs
+                         binary[i, 2] = get_reg(instsplit[i, 3],i);//rt
+                         binary[i, 3] = get_reg(instsplit[i, 1],i);//
                          binary[i, 4] = "00000";//shift amount
                          binary[i, 5] = "100000";// function
                         break;
@@ -125,9 +142,9 @@ namespace assembly
                         binary[i, 0] = "000000";
                         binary[i, 5] = "100010";
                         binary[i, 4] = "00000";
-                        binary[i, 1] = get_reg(instsplit[i, 2]);
-                        binary[i, 2] = get_reg(instsplit[i, 3]);
-                        binary[i, 3] = get_reg(instsplit[i, 1]);
+                        binary[i, 1] = get_reg(instsplit[i, 2], i);
+                        binary[i, 2] = get_reg(instsplit[i, 3], i);
+                        binary[i, 3] = get_reg(instsplit[i, 1], i);
                         break;
 
 
@@ -137,8 +154,8 @@ namespace assembly
                         string[] temp2 = temp1.Split('(');// temp2[0] = immediate
                         string[] temp3 = temp2[1].Split(')');// temp3[0] = rs
                         binary[i, 0] = "100011";
-                        binary[i, 1] = get_reg(temp3[0]);
-                        binary[i, 2] = get_reg(instsplit[i, 1]);
+                        binary[i, 1] = get_reg(temp3[0], i);
+                        binary[i, 2] = get_reg(instsplit[i, 1], i);
                         binary[i, 3] = Extend2(Convert.ToInt16(temp2[0]),16);
                         break;
 
@@ -148,15 +165,15 @@ namespace assembly
                         string[] temp22 = temp11.Split('(');// temp2[0] = immediate
                         string[] temp33 = temp22[1].Split(')');// temp3[0] = rs
                         binary[i, 0] = "101011";
-                        binary[i, 1] = get_reg(temp33[0]);
-                        binary[i, 2] = get_reg(instsplit[i, 1]);
+                        binary[i, 1] = get_reg(temp33[0], i);
+                        binary[i, 2] = get_reg(instsplit[i, 1], i);
                         binary[i, 3] = Extend2(Convert.ToInt16(temp22[0]), 16);
                         break;
 
                     case "beq" :
                         binary[i, 0] = "000100";
-                        binary[i, 1] = get_reg(instsplit[i, 1]);
-                        binary[i, 2] = get_reg(instsplit[i, 2]);
+                        binary[i, 1] = get_reg(instsplit[i, 1], i);
+                        binary[i, 2] = get_reg(instsplit[i, 2], i);
                         string addr= "";
                         for (int l = 0; l < lablenumber; l++)
                         {
@@ -184,17 +201,17 @@ namespace assembly
 
                     case "addi" :
                         binary[i, 0] = "001000";
-                        binary[i, 1] = get_reg(instsplit[i, 2]); //rs
-                         binary[i, 2] = get_reg(instsplit[i, 1]);//rt
+                        binary[i, 1] = get_reg(instsplit[i, 2], i); //rs
+                         binary[i, 2] = get_reg(instsplit[i, 1], i);//rt
                          binary[i, 3] = Extend2(Convert.ToInt32( instsplit[i, 3]), 16);
                          break;
 
                     case "and" :
 
                          binary[i, 0] = "000000";//op code
-                         binary[i, 1] = get_reg(instsplit[i, 2]); //rs
-                         binary[i, 2] = get_reg(instsplit[i, 3]);//rt
-                         binary[i, 3] = get_reg(instsplit[i, 1]);//
+                         binary[i, 1] = get_reg(instsplit[i, 2], i); //rs
+                         binary[i, 2] = get_reg(instsplit[i, 3], i);//rt
+                         binary[i, 3] = get_reg(instsplit[i, 1], i);//
                          binary[i, 4] = "00000";//shift amount
                          binary[i, 5] = "100100";// function
                          break;
@@ -202,9 +219,9 @@ namespace assembly
                     case "or" :
                         
                          binary[i, 0] = "000000";//op code
-                         binary[i, 1] = get_reg(instsplit[i, 2]); //rs
-                         binary[i, 2] = get_reg(instsplit[i, 3]);//rt
-                         binary[i, 3] = get_reg(instsplit[i, 1]);//
+                         binary[i, 1] = get_reg(instsplit[i, 2], i); //rs
+                         binary[i, 2] = get_reg(instsplit[i, 3], i);//rt
+                         binary[i, 3] = get_reg(instsplit[i, 1], i);//
                          binary[i, 4] = "00000";//shift amount
                          binary[i, 5] = "100101";// function
                          break;
@@ -212,32 +229,32 @@ namespace assembly
                     case "nor" :
                          
                          binary[i, 0] = "000000";//op code
-                         binary[i, 1] = get_reg(instsplit[i, 2]); //rs
-                         binary[i, 2] = get_reg(instsplit[i, 3]);//rt
-                         binary[i, 3] = get_reg(instsplit[i, 1]);//
+                         binary[i, 1] = get_reg(instsplit[i, 2], i); //rs
+                         binary[i, 2] = get_reg(instsplit[i, 3], i);//rt
+                         binary[i, 3] = get_reg(instsplit[i, 1], i);//
                          binary[i, 4] = "00000";//shift amount
                          binary[i, 5] = "100111";// function
                          break;
 
                     case "ori" :
                          binary[i, 0] = "001101";
-                         binary[i, 1] = get_reg(instsplit[i, 2]); //rs
-                         binary[i, 2] = get_reg(instsplit[i, 1]);//rt
+                         binary[i, 1] = get_reg(instsplit[i, 2], i); //rs
+                         binary[i, 2] = get_reg(instsplit[i, 1], i);//rt
                          binary[i, 3] = Extend2(Convert.ToInt32( instsplit[i, 3]), 16);
                          break;
 
                     case"andi" :
                          binary[i, 0] = "001100";
-                         binary[i, 1] = get_reg(instsplit[i, 2]); //rs
-                         binary[i, 2] = get_reg(instsplit[i, 1]);//rt
+                         binary[i, 1] = get_reg(instsplit[i, 2], i); //rs
+                         binary[i, 2] = get_reg(instsplit[i, 1], i);//rt
                          binary[i, 3] = Extend2(Convert.ToInt32( instsplit[i, 3]), 16);
                          break;
 
                     case "sll" : 
                          binary[i, 0] = "000000";//op code
                          binary[i, 1] = "00000"; //rs
-                         binary[i, 2] = get_reg(instsplit[i, 2]);//rt
-                         binary[i, 3] = get_reg(instsplit[i, 1]); //rd
+                         binary[i, 2] = get_reg(instsplit[i, 2], i);//rt
+                         binary[i, 3] = get_reg(instsplit[i, 1], i); //rd
                          binary[i, 4] = Extend2(Convert.ToInt32(instsplit[i,3]),5); //shift amount
                          binary[i, 5] = "000000";// function
 
@@ -258,7 +275,7 @@ namespace assembly
                         
                     case "jr" :
                         binary[i, 0] = "000000";
-                        binary[i, 1] = get_reg(instsplit[i, 1]);
+                        binary[i, 1] = get_reg(instsplit[i, 1], i);
                         binary[i, 2] = "00000";
                         binary[i ,3] = "00000";
                         binary[i, 4] = "00000";
@@ -267,11 +284,14 @@ namespace assembly
 
                     case"slt" :
                         binary[i, 0] = "000000";
-                        binary[i, 1] = get_reg(instsplit[i, 2]); //rs
-                         binary[i, 2] = get_reg(instsplit[i, 3]);//rt
-                         binary[i, 3] = get_reg(instsplit[i, 1]);//
+                        binary[i, 1] = get_reg(instsplit[i, 2], i);//rs
+                         binary[i, 2] = get_reg(instsplit[i, 3], i);//rt
+                         binary[i, 3] = get_reg(instsplit[i, 1], i);//
                          binary[i, 4] = "00000";//shift amount
                          binary[i, 5] = "101010";// function
+                        break;
+                    default:
+                        er += "wrong instruction in line" + i + "\n";
                         break;
                         
                         
@@ -281,37 +301,36 @@ namespace assembly
                 }
 
                 asmbly_out.Text += binary[i, 0];
-
-              
                 asmbly_out.Text += binary[i, 1];
-
-               
-
                 asmbly_out.Text += binary[i, 2];
-
-             
-
                 asmbly_out.Text += binary[i, 3];
-
                 asmbly_out.Text += binary[i, 4];
-
-               
-
                 asmbly_out.Text += binary[i, 5];
-
-
-
                 asmbly_out.Text += "\n";
               
             }
 
             // end
 
-
+            if (er == "")
+            {
+                
+                Elist.Text += "Converting done , no Errors was found \n";
            
+            }
+            else
+            {
+                Elist.Text += "Converting faild \n";
+                asmbly_out.Text = "";
+                Elist.Text += er;
+            }
+
+            Elist.SelectionStart = Elist.Text.Length;
+            Elist.ScrollToCaret();
+            
           
         }
-        public string get_reg(string reg)
+        public string get_reg(string reg,int i)
          {
              string[] codes = new string[32];
 
@@ -347,14 +366,18 @@ namespace assembly
              codes[29] = "$sp";
              codes[30] = "$fp";
              codes[31] = "$ra";
-             int v = 0;
+             int v = -1;
              for (int y = 0; y < codes.Length; y++)
                  if (reg == codes[y])
                  {
                      v =y;
 
                  }
-            
+             if (v == -1)
+             {
+                 er += "wrong register name in line" + i + "\n";
+                
+             }
              string x = Convert.ToString(v, 2);
 
              if (x.Length == 4)
@@ -384,6 +407,7 @@ namespace assembly
         private void button2_Click(object sender, EventArgs e)
         {
             asmbly_out.Text = "";
+            Elist.Text = "";
 
         }
         public string Extend2(int x, int y) {
@@ -417,7 +441,7 @@ namespace assembly
         private void button3_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "maradona Files|*.maradon";
+            saveFileDialog1.Filter = "List Files|*.list";
             saveFileDialog1.Title = "Save a maradona File";
             saveFileDialog1.ShowDialog();
 
@@ -447,6 +471,38 @@ namespace assembly
                 }
             }
             
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button3_Click(sender, e);
+        }
+
+        private void convertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button1_Click(sender, e);
+        }
+
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button2_Click(sender, e);
+        }
+
+        private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Credits c1 = new Credits();
+            c1.Show();
+        }
+
+        private void userGuideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            user_guid u1 = new user_guid();
+            u1.Show();
         }
 
        
