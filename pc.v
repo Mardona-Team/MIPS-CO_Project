@@ -55,9 +55,9 @@ initial
  //to support jump we will :
  
  wire [28:0] jumpAdd;
- assign jumpAdd = ( instruction[25:0] << 2 );  // now it is 28 bit
+ assign jumpAdd = ( instruction[25:0]<<2 );  // now it is 28 bit
  wire[31:0] jumpFinaladd;
- assign	   jumpFinaladd={jumpAdd,pcplus4[31:28]}  ;	  
+ assign	   jumpFinaladd={pcplus4[31:28],jumpAdd}  ;	  
  
  
  

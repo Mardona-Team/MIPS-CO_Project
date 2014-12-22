@@ -1,0 +1,93 @@
+program that places the sum of the four integer 
+variables b, c, d, and e into integer variable a, Store a in another address in memory
+
+---------------------------------
+assembly:
+
+addi $s1,$zero,6
+addi $s2,$zero,4
+addi $s4,$zero,3
+add  $s3,$s1,$s2 
+add  $s5,$s3,$s4
+sw   $s5,0($s6)
+---------------------
+Elapsed Time: 7800
+---------------------
+M.L:
+
+00100000
+00010001
+00000000
+00000110
+00100000
+00010010
+00000000
+00000100
+00100000
+00010100
+00000000
+00000011
+00000010
+00110010
+10011000
+00100000
+00000010
+01110100
+10101000
+00100000
+10101110
+11010101
+00000000
+00000000
+---------------------
+Monitor Output
+----------------------
+
+# KERNEL:                    0 instr=xxxxxxxx     pc=00000000   rs=xxxxxxxx   rt=xxxxxxxx   rd=xxxxxxxx  MemWrite=x  DM_Write=xxxxxxxx Alu-rslt~DM_adrss=xxxxxxxx
+# KERNEL:                  600 instr=20110006     pc=00000004   rs=xxxxxxxx   rt=xxxxxxxx   rd=00000000  MemWrite=0  DM_Write=xxxxxxxx Alu-rslt~DM_adrss=xxxxxxxx
+# KERNEL:                 1000 instr=20110006     pc=00000004   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000006
+# KERNEL:                 1800 instr=20120004     pc=00000008   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000004
+# KERNEL:                 3000 instr=20140003     pc=0000000c   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000003
+# KERNEL:                 4200 instr=02329820     pc=00000010   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+# KERNEL:                 4600 instr=02329820     pc=00000010   rs=00000006   rt=00000004   rd=00000000  MemWrite=0  DM_Write=00000004 Alu-rslt~DM_adrss=0000000a
+# KERNEL:                 5400 instr=0274a820     pc=00000014   rs=00000006   rt=00000004   rd=00000000  MemWrite=0  DM_Write=00000004 Alu-rslt~DM_adrss=0000000a
+# KERNEL:                 5800 instr=0274a820     pc=00000014   rs=0000000a   rt=00000003   rd=00000000  MemWrite=0  DM_Write=00000003 Alu-rslt~DM_adrss=0000000d
+# KERNEL:                 6600 instr=aed50000     pc=00000018   rs=0000000a   rt=00000003   rd=00000000  MemWrite=1  DM_Write=00000003 Alu-rslt~DM_adrss=0000000a
+# KERNEL:                 7000 instr=aed50000     pc=00000018   rs=00000000   rt=0000000d   rd=00000000  MemWrite=1  DM_Write=0000000d Alu-rslt~DM_adrss=00000000
+---------------------
+Register File
+----------------------
+0
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000006
+# KERNEL: 00000004
+# KERNEL: 0000000a
+# KERNEL: 00000003
+# KERNEL: 0000000d
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: xxxxxxxx
