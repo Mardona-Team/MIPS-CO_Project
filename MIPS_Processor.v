@@ -22,9 +22,6 @@ module mips();
 	wire [31:0] data_read;
 	wire RfWrite;  
 	wire [31:0] rd;
-	wire [31:0] data;
-	integer cur_time;
-	integer count;
 	integer i;
 	
 	
@@ -37,18 +34,18 @@ module mips();
 	sign_ext sx1(sign_ext_out,instruction[15:0]);
 	mux2x1 #30 m2(ALUSrc,ReadData2,sign_ext_out,mux2_out);	
 	ALU #100 a1(result,zero,ReadData1,mux2_out,operation,instruction[10:6]);
-	DM #300 dm1(data_read,data,ReadData2, clk, MemWrite,result,MemRead);
+	DM #300 dm1(data_read,ReadData2, clk, MemWrite,result,MemRead);
 	mux3x2 #30 m3(mux3_out,MemToReg,result,data_read,pcplus4); 
 	and(RfWrite,RegWrite,~Jr);
 	
 
 	always #600 clk=~clk;
-	always @(posedge clk) cur_time=$realtime; 
+	
 	
 	initial begin 
 		clk=0;	
 	  $monitor($time," instr=%h     pc=%h   rs=%h   rt=%h   rd=%h  MemWrite=%h  DM_Write=%h Alu-rslt~DM_adrss=%h",instruction,pc,ReadData1,ReadData2,rd,MemWrite,ReadData2,result) ;
-	  #19900 
+	  #19800 
 	  for (i=0;i<=32;i++)begin
 	  $display("%h",r1.Registers[i]);
 	  end  
