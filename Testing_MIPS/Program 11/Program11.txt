@@ -1,0 +1,190 @@
+grade calculator
+---------------------------------
+assembly:
+
+
+addi $s0,$zero,52
+addi $s1,$zero,750
+addi $s2,$zero,975
+addi $s3,$zero,1125
+addi $s4,$zero,1275
+slt $t0,$s0,$s1
+slt $t1,$s0,$s2
+slt $t2,$s0,$s3
+slt $t3,$s0,$s4
+beq $t3,$zero,A
+beq $t2,$zero,B
+beq $t1,$zero,C
+beq $t0,$zero,D
+jal F
+A:addi $t5,$zero,85
+jal Exit
+B:addi $t5,$zero,75
+jal Exit
+C:addi $t5,$zero,65
+jal Exit
+D:addi $t5,$zero,50
+jal Exit
+F:addi $t5,$zero,0
+Exit:
+---------------------
+Elapsed Time: 18600
+---------------------
+M.L:
+
+00100000
+00010000
+00000000
+00110100
+00100000
+00010001
+00000010
+11101110
+00100000
+00010010
+00000011
+11001111
+00100000
+00010011
+00000100
+01100101
+00100000
+00010100
+00000100
+11111011
+00000010
+00010001
+01000000
+00101010
+00000010
+00010010
+01001000
+00101010
+00000010
+00010011
+01010000
+00101010
+00000010
+00010100
+01011000
+00101010
+00010001
+01100000
+00000000
+00000100
+00010001
+01000000
+00000000
+00000101
+00010001
+00100000
+00000000
+00000110
+00010001
+00000000
+00000000
+00000111
+00001100
+00000000
+00000000
+00010110
+00100000
+00001101
+00000000
+01010101
+00001100
+00000000
+00000000
+00010111
+00100000
+00001101
+00000000
+01001011
+00001100
+00000000
+00000000
+00010111
+00100000
+00001101
+00000000
+01000001
+00001100
+00000000
+00000000
+00010111
+00100000
+00001101
+00000000
+00110010
+00001100
+00000000
+00000000
+00010111
+00100000
+00001101
+00000000
+00000000
+------------------------
+Monitor Output
+------------------------
+
+# KERNEL:                    0 instr=xxxxxxxx     pc=00000000   rs=xxxxxxxx   rt=xxxxxxxx   rd=xxxxxxxx  MemWrite=x  DM_Write=xxxxxxxx Alu-rslt~DM_adrss=xxxxxxxx
+# KERNEL:                  600 instr=20100034     pc=00000004   rs=xxxxxxxx   rt=xxxxxxxx   rd=00000000  MemWrite=0  DM_Write=xxxxxxxx Alu-rslt~DM_adrss=xxxxxxxx
+# KERNEL:                 1000 instr=20100034     pc=00000004   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000034
+# KERNEL:                 1800 instr=201102ee     pc=00000008   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=000002ee
+# KERNEL:                 3000 instr=201203cf     pc=0000000c   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=000003cf
+# KERNEL:                 4200 instr=20130465     pc=00000010   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000465
+# KERNEL:                 5400 instr=201404fb     pc=00000014   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=000004fb
+# KERNEL:                 6600 instr=0211402a     pc=00000018   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+# KERNEL:                 7000 instr=0211402a     pc=00000018   rs=00000034   rt=000002ee   rd=00000000  MemWrite=0  DM_Write=000002ee Alu-rslt~DM_adrss=00000001
+# KERNEL:                 7800 instr=0212482a     pc=0000001c   rs=00000034   rt=000002ee   rd=00000000  MemWrite=0  DM_Write=000002ee Alu-rslt~DM_adrss=00000001
+# KERNEL:                 8200 instr=0212482a     pc=0000001c   rs=00000034   rt=000003cf   rd=00000000  MemWrite=0  DM_Write=000003cf Alu-rslt~DM_adrss=00000001
+# KERNEL:                 9000 instr=0213502a     pc=00000020   rs=00000034   rt=000003cf   rd=00000000  MemWrite=0  DM_Write=000003cf Alu-rslt~DM_adrss=00000001
+# KERNEL:                 9400 instr=0213502a     pc=00000020   rs=00000034   rt=00000465   rd=00000000  MemWrite=0  DM_Write=00000465 Alu-rslt~DM_adrss=00000001
+# KERNEL:                10200 instr=0214582a     pc=00000024   rs=00000034   rt=00000465   rd=00000000  MemWrite=0  DM_Write=00000465 Alu-rslt~DM_adrss=00000001
+# KERNEL:                10600 instr=0214582a     pc=00000024   rs=00000034   rt=000004fb   rd=00000000  MemWrite=0  DM_Write=000004fb Alu-rslt~DM_adrss=00000001
+# KERNEL:                11400 instr=11600004     pc=00000028   rs=00000034   rt=000004fb   rd=00000000  MemWrite=0  DM_Write=000004fb Alu-rslt~DM_adrss=00000001
+# KERNEL:                11800 instr=11600004     pc=00000028   rs=00000001   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+# KERNEL:                12600 instr=11400005     pc=0000002c   rs=00000001   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+# KERNEL:                13800 instr=11200006     pc=00000030   rs=00000001   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+# KERNEL:                15000 instr=11000007     pc=00000034   rs=00000001   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+# KERNEL:                16200 instr=0c000016     pc=00000058   rs=00000001   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+# KERNEL:                16600 instr=0c000016     pc=00000058   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+# KERNEL:                17400 instr=200d0000     pc=0000005c   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+------------------------
+Register File
+-----------------------
+
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000001
+# KERNEL: 00000001
+# KERNEL: 00000001
+# KERNEL: 00000001
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000034
+# KERNEL: 000002ee
+# KERNEL: 000003cf
+# KERNEL: 00000465
+# KERNEL: 000004fb
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000038
+# KERNEL: xxxxxxxx

@@ -1,0 +1,71 @@
+
+---------------------------------
+assembly:
+
+lw $s0, 0($t0)
+ori $s0, $s0, 255
+sw $s0, 0($t0)
+---------------------
+Elapsed Time: 4200
+---------------------
+M.L:
+
+10001101
+00010000
+00000000
+00000000
+00110110
+00010000
+00000000
+11111111
+10101101
+00010000
+00000000
+00000000
+
+-----------------------
+Monitor Output
+-----------------------
+
+# KERNEL:                    0 instr=xxxxxxxx     pc=00000000   rs=xxxxxxxx   rt=xxxxxxxx   rd=xxxxxxxx  MemWrite=x  DM_Write=xxxxxxxx Alu-rslt~DM_adrss=xxxxxxxx
+# KERNEL:                  600 instr=8d100000     pc=00000004   rs=xxxxxxxx   rt=xxxxxxxx   rd=00000000  MemWrite=0  DM_Write=xxxxxxxx Alu-rslt~DM_adrss=xxxxxxxx
+# KERNEL:                 1000 instr=8d100000     pc=00000004   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+# KERNEL:                 1800 instr=361000ff     pc=00000008   rs=00000000   rt=00000000   rd=00000000  MemWrite=0  DM_Write=00000000 Alu-rslt~DM_adrss=000000ff
+# KERNEL:                 3000 instr=ad100000     pc=0000000c   rs=00000000   rt=00000000   rd=000000ff  MemWrite=1  DM_Write=00000000 Alu-rslt~DM_adrss=00000000
+# KERNEL:                 3400 instr=ad100000     pc=0000000c   rs=00000000   rt=000000ff   rd=000000ff  MemWrite=1  DM_Write=000000ff Alu-rslt~DM_adrss=00000000
+------------------------
+Register File
+------------------------
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 000000ff
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: 00000000
+# KERNEL: xxxxxxxx

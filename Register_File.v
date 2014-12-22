@@ -1,9 +1,10 @@
-module Register_File(ReadRegister1,ReadRegister2,WriteRegister,WriteData,clk,WriteEnable,ReadData1,ReadData2) ;
+module Register_File(ReadRegister1,ReadRegister2,WriteRegister,WriteData,clk,WriteEnable,ReadData1,ReadData2,rd) ;
 	
 	input ReadRegister1,ReadRegister2,WriteRegister;
 	input [31:0] WriteData;
 	input WriteEnable, clk;
 	
+	output wire[31:0] rd;
 	output ReadData1, ReadData2;
 	
 	wire [4:0] 	ReadRegister1,ReadRegister2,WriteRegister;
@@ -47,18 +48,18 @@ module Register_File(ReadRegister1,ReadRegister2,WriteRegister,WriteData,clk,Wri
 		end
 	
 	 
-					assign ReadData1= Registers[ReadRegister1];
-					assign ReadData2= Registers[ReadRegister2];
+					assign #400 ReadData1= Registers[ReadRegister1];
+					assign #400 ReadData2= Registers[ReadRegister2];
 	
+				    assign rd=Registers[WriteRegister];
 			
 			
 			
-			
-   			 always @(negedge clk)
+   			 always @(posedge clk)
 					begin
-					 if (WriteEnable) 
+					 if (WriteEnable)begin 
 						 Registers[WriteRegister] <= WriteData;
-			
+						end
 		        	 end
 				
 				
