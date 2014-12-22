@@ -21,3 +21,6 @@ C:\Users\Ahmed\Desktop\projects\MIPS-co_Project\assembly\assembly\bin\Debug\asse
 C:\Users\Ahmed\Desktop\projects\MIPS-co_Project\assembly\assembly\obj\x86\Debug\assembly.Form1.resources
 C:\Users\Ahmed\Desktop\projects\MIPS-co_Project\assembly\assembly\obj\x86\Debug\assembly.Properties.Resources.resources
 C:\Users\Ahmed\Desktop\projects\MIPS-co_Project\assembly\assembly\obj\x86\Debug\assembly.csproj.GenerateResource.Cache
+C:\Users\Ahmed\Desktop\projects\MIPS-co_Project\assembly\assembly\obj\x86\Debug\assembly.csprojResolveAssemblyReference.cache
+C:\Users\Ahmed\Desktop\projects\MIPS-co_Project\assembly\assembly\obj\x86\Debug\assembly.Credits.resources
+C:\Users\Ahmed\Desktop\projects\MIPS-co_Project\assembly\assembly\obj\x86\Debug\assembly.user_guid.resources

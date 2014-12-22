@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Assembler User Guide</title>
+</head>
+
+<body>
+
+<p class="MsoNormal" align="center" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-align: center;">
+<b><span style="font-size: 18pt; line-height: 27.6000003814697px;">Assembler 
+User Guide<o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><o:p>
+&nbsp;</o:p></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<span style="font-size: 16pt; line-height: 24.5333347320557px;">An assembler is 
+a program that takes basic computer instructions and converts them into a 
+pattern of bits that the computer&#39;s processor can use to perform its basic 
+operations</span>.</p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><o:p>
+&nbsp;</o:p></p>
+<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style="font-family: 'Times New Roman'; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; border-collapse: collapse; border: none;">
+	<tr style="height: 35.5pt;">
+		<td width="638" colspan="3" valign="top" style="width: 6.65in; border: 1pt solid windowtext; padding: 0in 5.4pt; height: 35.5pt;">
+		<p class="MsoNormal" align="center" style="margin: 0in 0in 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;">
+		<b><span style="font-size: 16pt;">Instructions Supported</span><o:p></o:p></b></p>
+		</td>
+	</tr>
+	<tr style="height: 22pt;">
+		<td width="213" valign="top" style="width: 159.6pt; border-style: none solid solid; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; padding: 0in 5.4pt; height: 22pt;">
+		<p class="MsoNormal" align="center" style="margin: 0in 0in 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;">
+		<b><span style="font-size: 16pt;">R-Type<o:p></o:p></span></b></p>
+		<p class="MsoNormal" align="center" style="margin: 0in 0in 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;">
+		<b><o:p>&nbsp;</o:p></b></p>
+		</td>
+		<td width="213" valign="top" style="width: 159.6pt; border-style: none solid solid none; border-bottom-color: windowtext; border-bottom-width: 1pt; border-right-color: windowtext; border-right-width: 1pt; padding: 0in 5.4pt; height: 22pt;">
+		<p class="MsoNormal" align="center" style="margin: 0in 0in 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;">
+		<b><span style="font-size: 16pt;">I-Type<o:p></o:p></span></b></p>
+		<p class="MsoNormal" align="center" style="margin: 0in 0in 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;">
+		<b><o:p>&nbsp;</o:p></b></p>
+		</td>
+		<td width="213" valign="top" style="width: 159.6pt; border-style: none solid solid none; border-bottom-color: windowtext; border-bottom-width: 1pt; border-right-color: windowtext; border-right-width: 1pt; padding: 0in 5.4pt; height: 22pt;">
+		<p class="MsoNormal" align="center" style="margin: 0in 0in 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-align: center;">
+		<b><span style="font-size: 16pt;">J-Type<o:p></o:p></span></b></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="213" valign="top" style="width: 159.6pt; border-style: none solid solid; border-right-color: windowtext; border-bottom-color: windowtext; border-left-color: windowtext; border-right-width: 1pt; border-bottom-width: 1pt; border-left-width: 1pt; padding: 0in 5.4pt;">
+		<p class="MsoListParagraphCxSpFirst" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt;">add<o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt;">sub<o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt;">and<o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt;">or<o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt;">nor<o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt;">sll</span></span><span style="font-size: 14pt;"><o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt;">jr</span></span><span style="font-size: 14pt;"><o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpLast" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt;">slt</span></span><span style="font-size: 14pt;"><o:p></o:p></span></p>
+		<p class="MsoNormal" style="margin: 0in 0in 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif;"><o:p>
+		&nbsp;</o:p></p>
+		</td>
+		<td width="213" valign="top" style="width: 159.6pt; border-style: none solid solid none; border-bottom-color: windowtext; border-bottom-width: 1pt; border-right-color: windowtext; border-right-width: 1pt; padding: 0in 5.4pt;">
+		<p class="MsoListParagraphCxSpFirst" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt;">lw</span></span><span style="font-size: 14pt;"><o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt;">sw</span></span><span style="font-size: 14pt;"><o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt;">addi</span></span><span style="font-size: 14pt;"><o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt;">andi</span></span><span style="font-size: 14pt;"><o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt;">ori</span></span><span style="font-size: 14pt;"><o:p></o:p></span></p>
+		<p class="MsoListParagraphCxSpLast" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt;">beq</span></span><span style="font-size: 14pt;"><o:p></o:p></span></p>
+		<p class="MsoNormal" style="margin: 0in 0in 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif;"><o:p>
+		&nbsp;</o:p></p>
+		</td>
+		<td width="213" valign="top" style="width: 159.6pt; border-style: none solid solid none; border-bottom-color: windowtext; border-bottom-width: 1pt; border-right-color: windowtext; border-right-width: 1pt; padding: 0in 5.4pt;">
+		<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt;">Jal</span></span><span style="font-size: 14pt;"><o:p></o:p></span></p>
+		<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif; text-indent: -0.25in;">
+		<span style="font-size: 14pt">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt;">J<o:p></o:p></span></p>
+		<p class="MsoNormal" style="margin: 0in 0in 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif;">
+		<span style="font-size: 14pt;"><o:p>&nbsp;</o:p></span></p>
+		<p class="MsoNormal" style="margin: 0in 0in 0.0001pt; line-height: normal; font-size: 11pt; font-family: Calibri, sans-serif;"><o:p>
+		&nbsp;</o:p></p>
+		</td>
+	</tr>
+</table>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><o:p>
+&nbsp;</o:p></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><o:p>
+&nbsp;</o:p></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<b><span style="font-size: 16pt; line-height: 24.5333347320557px;">The<span>&nbsp;<span class="Apple-converted-space">&nbsp;</span></span>Expected 
+Output :<o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<span style="font-size: 14pt; line-height: 21.4666652679443px;">The translated 
+assembly code into machine code .<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<b><span style="font-size: 16pt; line-height: 24.5333347320557px;">Assembler 
+Standards :<o:p></o:p></span></b></p>
+<p class="MsoListParagraphCxSpFirst" style="margin: 0in 0in 0.0001pt 0.5in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-indent: -0.25in;">
+<span style="font-size: 14pt; line-height: 21.4666652679443px">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt; line-height: 21.4666652679443px;">ONLY 
+supported instructions and 32 registers are used<span>&nbsp;</span><o:p></o:p></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-indent: -0.25in;">
+<span style="font-size: 14pt; line-height: 21.4666652679443px">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt; line-height: 21.4666652679443px;">ONLY 
+one instruction is written per line .<o:p></o:p></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-indent: -0.25in;">
+<span style="font-size: 14pt; line-height: 21.4666652679443px">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span class="SpellE"><span style="font-size: 14pt; line-height: 21.4666652679443px;">Insruction</span></span><span style="font-size: 14pt; line-height: 21.4666652679443px;"><span class="Apple-converted-space">&nbsp;</span>general 
+form :<br />
+<b>- R-Type :</b><o:p></o:p></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-indent: -0.25in;">
+<span style="font-size: 14pt; line-height: 21.4666652679443px">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt; line-height: 21.4666652679443px;">Instruction 
+name - space –register-comma-register-comma-register<br />
+Exception for<span class="Apple-converted-space">&nbsp;</span><span class="SpellE">jr</span><span class="Apple-converted-space">&nbsp;</span>:<span class="Apple-converted-space">&nbsp;</span><span class="SpellE">jr</span>-space-register<o:p></o:p></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-indent: -0.25in;">
+<span style="font-size: 16pt; line-height: 24.5333347320557px">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><b><span style="font-size: 16pt; line-height: 24.5333347320557px;">I-Type:<o:p></o:p></span></b></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-indent: -0.25in;">
+<span style="font-size: 14pt; line-height: 21.4666652679443px">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt; line-height: 21.4666652679443px;">Instruction 
+name-space-register-comma-register-comma-immediate<o:p></o:p></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-indent: -0.25in;">
+<span style="font-size: 14pt; line-height: 21.4666652679443px">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt; line-height: 21.4666652679443px;">(loads/stores/<span class="SpellE">beq</span>)Instruction 
+name-space-register-offset(register)<o:p></o:p></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-indent: -0.25in;">
+<span style="font-size: 14pt; line-height: 21.4666652679443px">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><b><span style="font-size: 16pt; line-height: 24.5333347320557px;">J-Type:</span></b><span style="font-size: 14pt; line-height: 21.4666652679443px;"><o:p></o:p></span></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0.0001pt 0.5in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-indent: -0.25in;">
+<span style="font-size: 14pt; line-height: 21.4666652679443px">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt; line-height: 21.4666652679443px;">Instruction 
+name-space-label<o:p></o:p></span></p>
+<p class="MsoListParagraphCxSpLast" style="margin: 0in 0in 10pt 0.5in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-indent: -0.25in;">
+<span style="font-size: 16pt; line-height: 24.5333347320557px">-<span style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-converted-space">&nbsp;</span></span></span><span style="font-size: 14pt; line-height: 21.4666652679443px;">Label 
+name should be written in the same line of the first instruction in which it 
+jumps/branches to .<br />
+ex:<span>&nbsp;<span class="Apple-converted-space">&nbsp;</span></span>label : add 
+$s1,$s2,$s1</span><b><span style="font-size: 16pt; line-height: 24.5333347320557px;"><o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt 0.25in; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<b><span style="font-size: 16pt; line-height: 24.5333347320557px;"><o:p>&nbsp;</o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<span style="font-size: 14pt; line-height: 21.4666652679443px;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><o:p>
+&nbsp;</o:p></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><o:p>
+&nbsp;</o:p></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt; line-height: 16.8666667938232px; font-size: 11pt; font-family: Calibri, sans-serif; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><o:p>
+&nbsp;</o:p></p>
+
+</body>
+
+</html>
