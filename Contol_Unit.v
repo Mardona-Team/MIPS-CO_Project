@@ -42,11 +42,11 @@ module control_unit(RegDst,Branch,Jump,ALUSrc,ALUOp,MemToReg,RegWrite,MemWrite,M
 		        end
 		  
 		  andi:	begin
-			    RegDst<=2'b00;ALUSrc<=1;MemToReg<=2'b00;RegWrite<=1;MemRead<=0;MemWrite<=0;Branch<=0;ALUOp<=2'b00;Jump<=0;
+			    RegDst<=2'b00;ALUSrc<=1;MemToReg<=2'b00;RegWrite<=1;MemRead<=0;MemWrite<=0;Branch<=0;ALUOp<=3'b100;Jump<=0;
 		        end
 		  
 		 ori: begin
-			   RegDst<=2'b00;ALUSrc<=1;MemToReg<=2'b00;RegWrite<=1;MemRead<=0;MemWrite<=0;Branch<=0;ALUOp<=2'b00;Jump<=0;
+			   RegDst<=2'b00;ALUSrc<=1;MemToReg<=2'b00;RegWrite<=1;MemRead<=0;MemWrite<=0;Branch<=0;ALUOp<=3'b101;Jump<=0;
 		      end 
 		 
 		  jal: begin

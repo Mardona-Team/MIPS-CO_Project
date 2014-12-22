@@ -20,22 +20,24 @@ module mips();
 	wire  [31:0]result;
 	wire  zero ;
 	wire [31:0] data_read;
-	wire RfWrite;
-
+	wire RfWrite;  
+	wire [31:0] rd;
+	wire [31:0] data;
 	integer cur_time;
 	integer count;
+	integer i;
 	
 	
 	pc pc1(pc,pcplus4,clk,Branch,Jump,zero,instruction,ReadData1,Jr);
 	IM #400 im1(pc,clk,instruction,count);
 	control_unit #80 c1(RegDst,Branch,Jump,ALUSrc,ALUOp,MemToReg,RegWrite,MemWrite,MemRead,instruction[31:26]);	
 	mux3x2 #30 m1(mux1_out,RegDst,instruction[20:16],instruction[15:11],31);
-	Register_File r1(instruction[25:21],instruction[20:16],mux1_out,mux3_out,clk,RfWrite,ReadData1,ReadData2); //Delay is inside the module
+	Register_File r1(instruction[25:21],instruction[20:16],mux1_out,mux3_out,clk,RfWrite,ReadData1,ReadData2,rd); //Delay is inside the module
 	ALU_control ac1(operation,Jr,instruction[5:0],ALUOp);
 	sign_ext sx1(sign_ext_out,instruction[15:0]);
 	mux2x1 #30 m2(ALUSrc,ReadData2,sign_ext_out,mux2_out);	
 	ALU #100 a1(result,zero,ReadData1,mux2_out,operation,instruction[10:6]);
-	DM #300 dm1(data_read,ReadData2, clk, MemWrite,result,MemRead);
+	DM #300 dm1(data_read,data,ReadData2, clk, MemWrite,result,MemRead);
 	mux3x2 #30 m3(mux3_out,MemToReg,result,data_read,pcplus4); 
 	and(RfWrite,RegWrite,~Jr);
 	
@@ -45,8 +47,13 @@ module mips();
 	
 	initial begin 
 		clk=0;	
-		repeat(count) #1200 $display($time,"    %h         %h          %h        %h",instruction,pc,result,mux3_out) ;
-		//$finish;			
+	  $monitor($time," instr=%h     pc=%h   rs=%h   rt=%h   rd=%h  MemWrite=%h  DM_Write=%h Alu-rslt~DM_adrss=%h",instruction,pc,ReadData1,ReadData2,rd,MemWrite,ReadData2,result) ;
+	  #19900 
+	  for (i=0;i<=32;i++)begin
+	  $display("%h",r1.Registers[i]);
+	  end  
+	  $finish; 
+	  
 	end 
 	
 	
